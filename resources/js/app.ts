@@ -16,13 +16,11 @@ document.documentElement.lang = 'ar-DZ'
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel'
 
-// @ts-ignore
-const pages = import.meta.glob('./Pages/**/*.vue')
-
 
 createInertiaApp({
     title: (title) => `${title} - ${appName}`,
-    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, pages),
+    // @ts-ignore
+    resolve: (name) => resolvePageComponent(`./Pages/${name}.vue`, import.meta.glob('./Pages/**/*.vue')),
     // @ts-ignore
     setup({el, app, props, plugin}) {
         return createApp({render: () => h(app, props)})

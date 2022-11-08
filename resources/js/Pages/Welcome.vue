@@ -30,7 +30,7 @@ defineProps({
         <div class="lg:w-2/3 px-4 sm:px-6 lg:px-0">
             <Petitions/>
         </div>
-        <div class="lg:w-1/3 bg-red-500">
+        <div class="lg:w-1/3 bg-red-50">
             dd
         </div>
     </div>

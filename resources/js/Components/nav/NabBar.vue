@@ -1,8 +1,25 @@
 <script setup>
 import { Link } from '@inertiajs/inertia-vue3'
-import { ref } from 'vue'
+import { onMounted, onUnmounted, ref } from 'vue'
+import { debounce } from 'lodash'
 
 const showSideMenu = ref(false)
+
+const fixedMenu = ref(false)
+
+const handleScroll = (event) => {
+    fixedMenu.value = window.scrollY > 500
+}
+
+const handleDebouncedScroll = debounce(handleScroll, 10)
+
+onMounted(() => {
+    window.addEventListener('scroll', handleDebouncedScroll)
+})
+onUnmounted(() => {
+    window.removeEventListener('scroll', handleDebouncedScroll)
+})
+
 </script>
 
 <template>
@@ -77,6 +94,78 @@ const showSideMenu = ref(false)
             <i class="ri-menu-2-line ri-xl"></i>
         </div>
     </div>
+
+    <transition enter-active-class="transition duration-200"
+                enter-from-class="-translate-y-full"
+                enter-to-class="translate-x-0"
+                leave-active-class="transition duration-150"
+                leave-from-class="translate-x-0"
+                leave-to-class="-translate-y-full">
+        <div v-if="fixedMenu" class=" fixed top-0 inset-x-0 z-10 bg-white shadow-lg">
+            <div
+                class="flex flex-row border-b border-b-gray-200 px-4 h-24 items-center justify-between max-w-6xl mx-auto">
+                <div class="py-8 me-8">
+                    <Link class="font-black text-3xl"
+                          :href="route('home')">
+                        التغيير
+                        <span class="text-red-500">.</span>
+                    </Link>
+                </div>
+
+                <ul class="grow font-semibold list-none hidden sm:block">
+                    <li class="float-start py-8">
+                        <a href="#"
+                           class="block transition ease-in-out duration-200 px-4 relative hover:text-red-500
+                   after:w-0 after:h-0.5 after:absolute after:bg-red-500
+                   after:-bottom-2.5 after:start-4 after:ease-in-out after:transition-width after:duration-200
+                   hover:after:w-6">
+                            ابدأ عريضة
+                        </a>
+                    </li>
+                    <li class="float-start py-8">
+                        <a href="#"
+                           class="block transition ease-in-out duration-200 px-4 relative hover:text-red-500
+                   after:w-0 after:h-0.5 after:absolute after:bg-red-500
+                   after:-bottom-2.5 after:start-4 after:ease-in-out after:transition-width after:duration-200
+                   hover:after:w-6">
+                            احدث العرائض
+                        </a>
+                    </li>
+                </ul>
+
+                <ul class="font-semibold list-none hidden sm:block">
+                    <li v-if="$page.props.auth.user" class="float-start">
+                        <Link :href="route('dashboard')">Dashboard</Link>
+                    </li>
+
+                    <template v-else>
+                        <li class="float-start py-8">
+                            <Link :href="route('login')"
+                                  class="block transition ease-in-out duration-200 px-4 relative hover:text-red-500
+                          after:w-0 after:h-0.5 after:absolute after:bg-red-500
+                          after:-bottom-2.5 after:start-4 after:ease-in-out after:transition-width after:duration-200
+                          hover:after:w-6">
+                                تسجيل الدخول
+                            </Link>
+                        </li>
+                        <li class="float-start py-8">
+                            <Link :href="route('register')"
+                                  class="block transition ease-in-out duration-200 px-4 relative hover:text-red-500
+                          after:w-0 after:h-0.5 after:absolute after:bg-red-500
+                          after:-bottom-2.5 after:start-4 after:ease-in-out after:transition-width after:duration-200
+                          hover:after:w-6">
+                                انشئ حساب
+                            </Link>
+                        </li>
+                    </template>
+                </ul>
+
+                <div class="sm:hidden" @click="showSideMenu = true">
+                    <i class="ri-menu-2-line ri-xl"></i>
+                </div>
+            </div>
+        </div>
+    </transition>
 
     <transition enter-active-class="transition duration-300"
                 enter-from-class="opacity-0"

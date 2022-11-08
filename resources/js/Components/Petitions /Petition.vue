@@ -1,10 +1,13 @@
 <script setup lang="ts">
 
 import {Petition as PetitionClass} from '@/types/Petition'
+import {ref} from "vue";
 
 const props = defineProps<{
     petition: PetitionClass
 }>()
+
+const toggleShare = ref(false)
 
 </script>
 
@@ -49,14 +52,23 @@ const props = defineProps<{
             <p class="my-8 block text-gray-500">{{ petition.excerpt }}</p>
             <hr class="mb-6 border-gray-200">
 
-            <div class="flex flex-row justify-between">
-                <div class="hidden sm:flex sm:flex-row ">
-                    <a href="#" class="me-4"><i class="ri-facebook-fill"></i></a>
-                    <a href="#" class="me-4"><i class="ri-twitter-fill"></i></a>
-                    <a href="#" class="me-4"><i class="ri-instagram-line"></i></a>
-                    <a href="#" class=""><i class="ri-youtube-fill"></i></a>
+            <div class="flex flex-row justify-between items-center h-8">
+                <div class="flex flex-row">
+                    <button @click="toggleShare = !toggleShare"
+                            :class="toggleShare ? 'text-red-500': ''"
+                            class="cursor-pointer sm:hidden me-4 hover:text-red-500">
+                        <i class="ri-share-fill"></i>
+                    </button>
+                    <div :class="!toggleShare ? 'hidden ': 'flex'" class="sm:flex flex-row">
+                        <a href="#" class="me-4 hover:text-red-500"><i class="ri-facebook-fill"></i></a>
+                        <a href="#" class="me-4 hover:text-red-500"><i class="ri-twitter-fill"></i></a>
+                        <a href="#" class="me-4 hover:text-red-500"><i class="ri-instagram-line"></i></a>
+                        <a href="#" class="me-4 hover:text-red-500"><i class="ri-youtube-fill"></i></a>
+                        <a href="#" class="hover:text-red-500"><i class="ri-mail-fill"></i></a>
+                    </div>
                 </div>
-                <a href="#" class="hover:text-red-500 transition duration-200 text-lg font-bold">
+                <a href="#" :class="toggleShare ? 'hidden': 'inline-block'"
+                   class="sm:inline-block hover:text-red-500 transition duration-200 text-lg font-bold">
                     قراءة المزيد <i class="ri-arrow-left-s-line align-middle"></i>
                 </a>
             </div>
