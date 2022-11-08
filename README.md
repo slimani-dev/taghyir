@@ -1,4 +1,4 @@
-![](./resources/assets/img/algeria-bg.svg)
+![](./resources/assets/img/taghyir-repository-open-graph.png)
 
 # Taghyir
 ## The first Platform for Change in Algeria
