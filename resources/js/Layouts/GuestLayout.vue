@@ -1,5 +1,5 @@
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
+import ApplicationLogo from '@/Components/starter-kit/ApplicationLogo.vue';
 import { Link } from '@inertiajs/inertia-vue3';
 import NabBar from '@/Components/nav/NabBar.vue'
 </script>

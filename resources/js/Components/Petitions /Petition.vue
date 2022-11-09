@@ -12,7 +12,7 @@ const toggleShare = ref(false)
 </script>
 
 <template>
-    <div class="grow relative rounded-lg shadow-lg">
+    <div class="relative rounded-lg border border-gray-200">
         <div class="aspect-[2/1] rounded-t-lg">
             <img class="rounded-t-lg w-full h-full object-cover"
                  :src="petition.img"

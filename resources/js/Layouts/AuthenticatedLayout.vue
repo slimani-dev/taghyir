@@ -1,10 +1,10 @@
 <script setup>
 import { ref } from 'vue';
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import Dropdown from '@/Components/Dropdown.vue';
-import DropdownLink from '@/Components/DropdownLink.vue';
-import NavLink from '@/Components/NavLink.vue';
-import ResponsiveNavLink from '@/Components/ResponsiveNavLink.vue';
+import ApplicationLogo from '@/Components/starter-kit/ApplicationLogo.vue';
+import Dropdown from '@/Components/starter-kit/Dropdown.vue';
+import DropdownLink from '@/Components/starter-kit/DropdownLink.vue';
+import NavLink from '@/Components/starter-kit/NavLink.vue';
+import ResponsiveNavLink from '@/Components/starter-kit/ResponsiveNavLink.vue';
 import { Link } from '@inertiajs/inertia-vue3';
 import NabBar from '@/Components/nav/NabBar.vue'
 

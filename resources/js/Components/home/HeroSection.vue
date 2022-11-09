@@ -5,8 +5,8 @@ import dzBg from '@/../assets/img/algeria-bg.svg'
 
 <template>
   <div class="relative mb-8">
-    <div class="absolute top-0 inset-x-0 pt-2 -z-10 opacity-25">
-      <img :src="dzBg" alt="" class="w-full min-h-[400px] object-cover">
+    <div class="absolute p-6 inset-0 min-h-[400px] pt-2 -z-10 opacity-25">
+      <img :src="dzBg" alt="" class="w-full h-full object-contain">
     </div>
 
     <div class="max-w-6xl mx-auto px-12 py-16 text-center space-y-8">
