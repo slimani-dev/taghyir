@@ -1,7 +1,5 @@
 <script setup>
 import NabBar from '@/Components/nav/NabBar.vue'
-import HeroSection from '@/Components/home/HeroSection.vue'
-import Highlights from '@/Components/home/Highlights.vue'
 
 
 </script>
@@ -9,11 +7,11 @@ import Highlights from '@/Components/home/Highlights.vue'
 <template>
     <nab-bar/>
 
-    <hero-section/>
+    <slot name="hero"></slot>
 
-    <Highlights/>
+    <slot name="highlights"/>
 
-    <div class="lg:flex lg:flex-row-reverse max-w-6xl mx-auto lg:px-6 xl:px-0">
+    <div class="lg:flex lg:flex-row-reverse pt-8 max-w-6xl mx-auto md:px-6 lg:px-0">
         <div class="lg:w-2/3 px-4 me-4 lg:me-0">
             <slot/>
         </div>
