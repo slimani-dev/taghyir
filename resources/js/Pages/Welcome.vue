@@ -1,17 +1,8 @@
 <script setup>
 import { Head } from '@inertiajs/inertia-vue3'
-import NabBar from '@/Components/nav/NabBar.vue'
-import HeroSection from '@/Components/home/HeroSection.vue'
-import Highlights from '@/Components/home/Highlights.vue'
-import Petitions from '@/Components/Petitions /Petitions.vue'
+import MainLayout from '@/Layouts/MainLayout.vue'
+import PetitionsList from '@/Components/Petitions/PetitionsList.vue'
 import SidePanel from '@/Components/SidePanel.vue'
-
-defineProps({
-    canLogin: Boolean,
-    canRegister: Boolean,
-    laravelVersion: String,
-    phpVersion: String
-})
 
 </script>
 
@@ -21,20 +12,12 @@ defineProps({
     </Head>
 
 
-    <nab-bar/>
+    <main-layout>
+        <petitions-list></petitions-list>
 
-    <hero-section/>
-
-    <Highlights/>
-
-    <div class="lg:flex lg:flex-row-reverse max-w-6xl mx-auto lg:px-6 xl:px-0">
-        <div class="lg:w-2/3 px-4 me-4 lg:me-0">
-            <Petitions/>
-        </div>
-        <div class="lg:w-1/3 px-4 me-4 lg:me-0 py-8 lg:py-0">
-            <SidePanel/>
-        </div>
-    </div>
-
+        <template v-slot:sidebar>
+            <side-panel></side-panel>
+        </template>
+    </main-layout>
 
 </template>

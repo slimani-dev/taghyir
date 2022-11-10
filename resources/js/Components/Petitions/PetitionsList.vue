@@ -1,7 +1,7 @@
 <script setup>
 
 import { reactive } from 'vue'
-import Petition from '@/Components/Petitions /Petition.vue'
+import PetitionItem from '@/Components/Petitions/PetitionItem.vue'
 
 const petitions = reactive({
     data: [
@@ -103,11 +103,11 @@ const petitions = reactive({
 
 <template>
     <div class="space-y-8">
-        <Petition v-for="petition in petitions.data" :key="petition.data" :petition="petition"/>
+        <PetitionItem v-for="petition in petitions.data" :key="petition.data" :petition="petition"/>
     </div>
 </template>
 <script>
 export default {
-    name: 'Petitions'
+    name: 'PetitionsList'
 }
 </script>

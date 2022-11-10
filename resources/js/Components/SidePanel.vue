@@ -71,17 +71,19 @@ const categories = reactive({
 
         <div class="grow relative rounded-lg border border-gray-200 px-6 py-12 space-y-6">
             <h3 class="text-lg font-bold text-center">التصنيفات الاكثر شيوعا</h3>
-            <svg class="inline-block" width="33" height="6" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
-                        <stop offset="0%" stop-color="#FE4F70"/>
-                        <stop offset="100%" stop-color="#FFA387"/>
-                    </linearGradient>
-                </defs>
-                <path
-                    d="M33 1c-3.3 0-3.3 4-6.598 4C23.1 5 23.1 1 19.8 1c-3.3 0-3.3 4-6.599 4-3.3 0-3.3-4-6.6-4S3.303 5 0 5"
-                    stroke="url(#gradient)" stroke-width="2" fill="none"/>
-            </svg>
+            <div class="text-center">
+                <svg class="inline-block" width="33" height="6" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                        <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                            <stop offset="0%" stop-color="#FE4F70"/>
+                            <stop offset="100%" stop-color="#FFA387"/>
+                        </linearGradient>
+                    </defs>
+                    <path
+                        d="M33 1c-3.3 0-3.3 4-6.598 4C23.1 5 23.1 1 19.8 1c-3.3 0-3.3 4-6.599 4-3.3 0-3.3-4-6.6-4S3.303 5 0 5"
+                        stroke="url(#gradient)" stroke-width="2" fill="none"/>
+                </svg>
+            </div>
             <ul>
                 <li v-for="category in categories.data"
                     :key="category.id"

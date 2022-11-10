@@ -78,6 +78,6 @@ const toggleShare = ref(false)
 </template>
 <script lang="ts">
 export default {
-    name: 'Petition'
+    name: 'PetitionItem'
 }
 </script>

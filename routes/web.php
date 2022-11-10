@@ -24,8 +24,12 @@ Route::get('/', function () {
     ]);
 })->name('home');
 
+Route::get('petition', function () {
+    return Inertia::render('Petition');
+})->name('petitions.show');
+
 Route::get('/dashboard', function () {
     return Inertia::render('Dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
