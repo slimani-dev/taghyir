@@ -47,6 +47,9 @@ const categories = reactive({
 
 <template>
     <div class="space-y-8 sticky top-28">
+
+        <slot name="petition-details"></slot>
+
         <div class="grow relative rounded-lg border border-gray-200 px-6 py-12  text-center space-y-6">
             <div class="absolute inset-0">
                 <img :src="worldMap" class="h-full w-full object-cover" alt="">
@@ -103,3 +106,15 @@ export default {
     name: 'SidePanel'
 }
 </script>
+
+<style scoped lang="scss">
+@keyframes progress {
+    0% {
+        stroke-dasharray: 0 100;
+    }
+}
+
+.circle {
+    animation: progress 2s ease-out forwards;
+}
+</style>

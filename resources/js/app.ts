@@ -1,5 +1,5 @@
 import '@/bootstrap'
-import '@/../css/app.css'
+import '@/../css/app.scss'
 import 'remixicon/fonts/remixicon.css'
 
 import {createApp, h} from 'vue'
@@ -10,9 +10,6 @@ import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers'
 import {ZiggyVue} from '../../vendor/tightenco/ziggy/dist/vue.m'
 // @ts-ignore
 import {Ziggy} from './ziggy'
-
-document.documentElement.dir = 'rtl'
-document.documentElement.lang = 'ar-DZ'
 
 const appName = window.document.getElementsByTagName('title')[0]?.innerText || 'Laravel'
 
