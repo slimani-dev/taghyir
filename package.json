@@ -26,6 +26,7 @@
         "vue": "^3.2.41"
     },
     "dependencies": {
+        "human-number": "^2.0.1",
         "remixicon": "^2.5.0",
         "ziggy": "^2.4.0"
     }

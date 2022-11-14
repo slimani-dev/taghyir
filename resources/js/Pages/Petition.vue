@@ -2,11 +2,12 @@
 import MainLayout from '@/Layouts/MainLayout.vue'
 import SidePanel from "@/Components/SidePanel.vue";
 import {onMounted, reactive, Ref, ref} from "vue";
+import humanNumber from 'human-number'
 
 const tabs = reactive({
     elements: [
-        {name: 'العريضة', count: 52},
-        {name: 'التوقيعات', count: 6},
+        {name: 'العريضة'},
+        {name: 'التوقيعات', count: 398333},
         {name: 'الاحصاءات', count: 4},
         {name: 'طهور اضافي'},
         {name: 'اخر الاخبار'},
@@ -120,20 +121,20 @@ onMounted(() => {
             </div>
             <div class="hidden sm:block">
                 <div class="border-b border-gray-200">
-                    <nav class="-mb-px flex space-x-8" aria-label="Tabs">
+                    <nav class="-mb-px flex" aria-label="Tabs">
                         <a v-for="tab in tabs.elements"
                            :key="tab.name"
                            href="#"
                            @click.prevent="tabs.selected = tab"
                            :class="[tab.name === tabs.selected.name ? 'border-red-500 text-red-600' : 'border-transparent text-gray-500 ' +
-                            'hover:text-gray-700 hover:border-gray-200', 'whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm']"
+                            'hover:text-gray-700 hover:border-gray-200']"
+                           class="whitespace-nowrap flex py-4 px-1 border-b-2 font-medium text-sm me-8"
                            :aria-current="tab.name === tabs.selected.name ? 'page' : undefined">
                             {{ tab.name }}
                             <span v-if="tab.count"
                                   class="hidden ms-3 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block"
-                                  :class="[tab.name === tabs.selected.name ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-gray-900']">{{
-                                    tab.count
-                                }}</span>
+                                  :class="[tab.name === tabs.selected.name ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-gray-900']">
+                                {{ humanNumber(tab.count, n => n.toFixed(0)) }}</span>
                         </a>
                     </nav>
                 </div>
