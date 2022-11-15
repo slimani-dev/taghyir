@@ -3,6 +3,7 @@ import MainLayout from '@/Layouts/MainLayout.vue'
 import SidePanel from "@/Components/SidePanel.vue";
 import {onMounted, reactive, Ref, ref} from "vue";
 import humanNumber from 'human-number'
+import {Head} from '@inertiajs/inertia-vue3';
 
 const tabs = reactive({
     elements: [
@@ -67,6 +68,9 @@ onMounted(() => {
 </script>
 
 <template>
+    <Head>
+        <title>3 طرق سهلة لجعل iPhone الخاص بك أسرع</title>
+    </Head>
 
     <main-layout>
         <ol class="mb-5 flex text-gray-400">
@@ -189,9 +193,95 @@ onMounted(() => {
             </template>
 
             <template v-if="tabs.selected?.name === tabs.elements[1]?.name">
-
+                <div class="w-full overscroll-x-none flex">
+                    <table class="min-w-full table-auto">
+                        <tbody>
+                        <tr class="text-gray-500 bg-gray-100">
+                            <td class="border-b border-gray-200 font-medium p-4 ps-8 text-start">
+                                #
+                            </td>
+                            <td class="border-b border-gray-200 font-medium p-4 ps-8 text-start">
+                                الاسم
+                            </td>
+                            <td class="border-b border-gray-200 font-medium p-4 ps-8 text-start">
+                                المدينة
+                            </td>
+                            <td class="border-b border-gray-200 font-medium p-4 ps-8 text-start">
+                                تعليق
+                            </td>
+                            <td class="border-b border-gray-200 font-medium p-4 ps-8 text-start">
+                                التاريخ
+                            </td>
+                        </tr>
+                        <tr v-for="i in 12" class="hover:bg-gray-100 text-gray-500">
+                            <td class="border-b border-gray-200 p-4 ps-8">
+                                {{ i }}
+                            </td>
+                            <td class="border-b border-gray-200 p-4 ps-8">
+                                هادي الحمدوني
+                            </td>
+                            <td class="border-b border-gray-200 p-4 ps-8">
+                                تونس المدينة
+                            </td>
+                            <td class="border-b border-gray-200 p-4 ps-8">
+                                انا اوقع و اساند
+                            </td>
+                            <td class="border-b border-gray-200 p-4 ps-8">
+                                2022-10-16
+                            </td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </template>
-            <template v-if="tabs.selected?.name === tabs.elements[2]?.name"></template>
+            <template v-if="tabs.selected?.name === tabs.elements[2]?.name">
+                <div class="grid grid-cols-1 md:grid-cols-2 md:gap-4">
+                    <div class="table-responsive">
+                        <table class="w-full table-auto">
+                            <tbody>
+                            <tr class="text-gray-500 bg-gray-100">
+                                <td class="border-b border-gray-200 font-medium p-4 ps-8 text-start">
+                                    المدينة
+                                </td>
+                                <td class="border-b border-gray-200 font-medium p-4 text-start">
+                                    التوقيعات
+                                </td>
+                            </tr>
+                            <tr v-for="i in 12" class="hover:bg-gray-100 text-gray-500">
+                                <td class="border-b border-gray-200 p-4 ps-8">
+                                    Sfax (تونس)
+                                </td>
+                                <td class="border-b border-gray-200 p-4 ps-8">
+                                    583
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="table-responsive">
+                        <table class="w-full table-auto">
+                            <tbody>
+                            <tr class="text-gray-500 bg-gray-100">
+                                <td class="border-b border-gray-200 font-medium p-4 ps-8 text-start">
+                                    التاريخ
+                                </td>
+                                <td class="border-b border-gray-200 font-medium p-4 text-start">
+                                    التوقيعات
+                                </td>
+                            </tr>
+                            <tr v-for="i in 12" class="hover:bg-gray-100 text-gray-500">
+                                <td class="border-b border-gray-200 p-4 ps-8">
+                                    2022-11-14
+                                </td>
+                                <td class="border-b border-gray-200 p-4 ps-8">
+                                    583
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </template>
             <template v-if="tabs.selected?.name === tabs.elements[3]?.name"></template>
             <template v-if="tabs.selected?.name === tabs.elements[4]?.name"></template>
 
@@ -213,6 +303,47 @@ onMounted(() => {
                     <a href="#" class="me-4 hover:text-red-500"><i class="ri-instagram-line"></i></a>
                     <a href="#" class="me-4 hover:text-red-500"><i class="ri-youtube-fill"></i></a>
                     <a href="#" class="hover:text-red-500"><i class="ri-mail-fill"></i></a>
+                </div>
+            </div>
+
+            <hr class="border-gray-300">
+
+            <div class="">
+                <h3 class="text-2xl font-bold">التعليقات (6)</h3>
+                <div class="mb-6">
+                    <svg class="inline-block" width="33" height="6" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#FE4F70"/>
+                                <stop offset="100%" stop-color="#FFA387"/>
+                            </linearGradient>
+                        </defs>
+                        <path
+                            d="M33 1c-3.3 0-3.3 4-6.598 4C23.1 5 23.1 1 19.8 1c-3.3 0-3.3 4-6.599 4-3.3 0-3.3-4-6.6-4S3.303 5 0 5"
+                            stroke="url(#gradient)" stroke-width="2" fill="none"/>
+                    </svg>
+                </div>
+                <div class="rounded-lg border border-gray-200 px-6 py-12 space-y-6">
+                    <div class="flex">
+                        <img class="w-16 h-16 rounded-full me-6"
+                             src="https://katen-template.netlify.app/html/images/other/comment-1.png" alt="">
+                        <div>
+                            <h3 class="font-bold text-lg">عثمان</h3>
+                            <p class="text-gray-500 text-sm mb-6">Jan 08, 2021 14:41 pm</p>
+                            <p class="text-gray-500">لوريم ايبسوم دولار سيت أميت ,كونسيكتيتور أدايبا يسكينج أليايت,سيت
+                                دو أيوسمود تيمبور
+
+                                أنكايديديونتيوت لابوري ات دولار ماجنا أليكيوا . يوت انيم أد مينيم فينايم,كيواس نوستريد
+
+                                أكسير سيتاشن يللأمكو لابورأس نيسي يت أليكيوب أكس أيا كوممودو كونسيكيوات . ديواس
+
+                                أيوتي أريري دولار إن ريبريهينديرأيت فوليوبتاتي فيلايت أيسسي كايلليوم دولار أيو فيجايت
+
+                                نيولا باراياتيور. أيكسسيبتيور ساينت أوككايكات كيوبايداتات نون بروايدينت ,سيونت ان كيولبا
+
+                                كيو أوفيسيا ديسيريونتموليت انيم أيدي ايست لابوريوم</p>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -268,16 +399,13 @@ onMounted(() => {
                             <input type="text" class="col-span-2 border border-gray-200 rounded-lg focus:ring-red-500
                                     focus:border-red-500"
                                    placeholder="الاسم *">
-                            <input type="text" class="col-span-2 border border-gray-200 rounded-lg focus:ring-red-500
-                                    focus:border-red-500"
-                                   placeholder="اللقب *">
                             <select class="col-span-2 ps-3 pe-10 border border-gray-200 rounded-lg focus:ring-red-500
                                     focus:border-red-500">
                                 <option disabled selected>اختر الولاية *</option>
                             </select>
                             <select class="col-span-2 ps-3 pe-10 border border-gray-200 rounded-lg focus:ring-red-500
                                     focus:border-red-500">
-                                <option disabled selected>اختر البلدية *</option>
+                                <option disabled selected>اختر المدينة *</option>
                             </select>
                             <input type="email" class="col-span-2 border border-gray-200 rounded-lg focus:ring-red-500
                                     focus:border-red-500"
