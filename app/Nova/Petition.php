@@ -2,19 +2,21 @@
 
 namespace App\Nova;
 
+
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
+use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Category extends Resource
+class Petition extends Resource
 {
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Category>
+     * @var class-string<\App\Models\Petition>
      */
-    public static $model = \App\Models\Category::class;
+    public static $model = \App\Models\Petition::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
@@ -42,8 +44,9 @@ class Category extends Resource
     {
         return [
             ID::make()->sortable(),
-            Text::make('Slug')->sortable(),
-            Text::make('Name')->sortable(),
+            Text::make('title')->sortable(),
+            Textarea::make('excerpt')->sortable(),
+            Text::make('text')->sortable(),
         ];
     }
 
@@ -53,7 +56,7 @@ class Category extends Resource
      * @param \Laravel\Nova\Http\Requests\NovaRequest $request
      * @return array
      */
-    public function cards(NovaRequest $request): array
+    public function cards(NovaRequest $request)
     {
         return [];
     }
@@ -64,7 +67,7 @@ class Category extends Resource
      * @param \Laravel\Nova\Http\Requests\NovaRequest $request
      * @return array
      */
-    public function filters(NovaRequest $request): array
+    public function filters(NovaRequest $request)
     {
         return [];
     }
@@ -75,7 +78,7 @@ class Category extends Resource
      * @param \Laravel\Nova\Http\Requests\NovaRequest $request
      * @return array
      */
-    public function lenses(NovaRequest $request): array
+    public function lenses(NovaRequest $request)
     {
         return [];
     }
@@ -86,7 +89,7 @@ class Category extends Resource
      * @param \Laravel\Nova\Http\Requests\NovaRequest $request
      * @return array
      */
-    public function actions(NovaRequest $request): array
+    public function actions(NovaRequest $request)
     {
         return [];
     }

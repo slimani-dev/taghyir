@@ -1,15 +1,15 @@
 export interface Petition {
-    id: String,
-    img: String,
-    title: String,
-    excerpt: String,
-    signatures: Number,
-    sponsors: Number,
-    category: String,
-    date: String,
+    id: string,
+    img: string,
+    title: string,
+    excerpt: string,
+    signatures: number,
+    sponsors: number,
+    category: string,
+    date: string,
     author: {
-        id: String,
-        name: String,
-        avatar: String
+        id: string,
+        name: string,
+        avatar: string
     }
 }

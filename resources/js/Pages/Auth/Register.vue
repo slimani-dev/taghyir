@@ -6,6 +6,7 @@ import TextInput from '@/Components/starter-kit/TextInput.vue'
 import {Head, Link, useForm} from '@inertiajs/inertia-vue3'
 import SidePanel from '@/Components/SidePanel.vue'
 import MainLayout from '@/Layouts/MainLayout.vue'
+import route from 'ziggy-js'
 
 const props = defineProps<{
     states: { id: Number, name: String, ar_name: String }[]

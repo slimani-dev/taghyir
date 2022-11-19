@@ -2,6 +2,7 @@
 import {Link} from '@inertiajs/inertia-vue3'
 import worldMap from '@/../assets/img/world-bg.png'
 import {reactive} from "vue";
+import route from 'ziggy-js'
 
 const categories = reactive({
     data: [

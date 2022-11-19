@@ -138,7 +138,7 @@ onMounted(() => {
                             <span v-if="tab.count"
                                   class="hidden ms-3 py-0.5 px-2.5 rounded-full text-xs font-medium md:inline-block"
                                   :class="[tab.name === tabs.selected.name ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-gray-900']">
-                                {{ humanNumber(tab.count, n => n.toFixed(0)) }}</span>
+                                {{ humanNumber(tab.count, (n: number) => n.toFixed(0)) }}</span>
                         </a>
                     </nav>
                 </div>
