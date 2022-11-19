@@ -1,113 +1,67 @@
 <script setup>
-import { ref } from 'vue';
-import ApplicationLogo from '@/Components/starter-kit/ApplicationLogo.vue';
-import Dropdown from '@/Components/starter-kit/Dropdown.vue';
-import DropdownLink from '@/Components/starter-kit/DropdownLink.vue';
-import NavLink from '@/Components/starter-kit/NavLink.vue';
-import ResponsiveNavLink from '@/Components/starter-kit/ResponsiveNavLink.vue';
-import { Link } from '@inertiajs/inertia-vue3';
 import NabBar from '@/Components/nav/NabBar.vue'
+import { Link } from '@inertiajs/inertia-vue3'
 
-const showingNavigationDropdown = ref(false);
+
 </script>
 
 <template>
-    <nab-bar></nab-bar>
+    <nab-bar/>
 
-    <div>
-        <div class=" bg-gray-100">
-            <nav class="bg-white border-b border-gray-100">
-                <!-- Primary Navigation Menu -->
-                <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-                    <div class="flex justify-between h-16">
-                        <div class="flex">
-                            <!-- Logo -->
-                            <div class="shrink-0 flex items-center">
-                                <Link :href="route('dashboard')">
-                                    <ApplicationLogo class="block h-9 w-auto" />
-                                </Link>
-                            </div>
+    <slot name="hero"></slot>
 
-                            <!-- Navigation Links -->
-                            <div class="hidden space-x-8 sm:-my-px sm:ml-10 sm:flex">
-                                <NavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                                    Dashboard
-                                </NavLink>
-                            </div>
-                        </div>
+    <slot name="highlights"/>
 
-                        <div class="hidden sm:flex sm:items-center sm:ml-6">
-                            <!-- Settings Dropdown -->
-                            <div class="ml-3 relative">
-                                <Dropdown align="right" width="48">
-                                    <template #trigger>
-                                        <span class="inline-flex rounded-md">
-                                            <button type="button" class="inline-flex items-center px-3 py-2 border border-transparent text-sm leading-4 font-medium rounded-md text-gray-500 bg-white hover:text-gray-700 focus:outline-none transition ease-in-out duration-150">
-                                                {{ $page.props.auth.user.name }}
+    <div class="lg:flex lg:flex-row-reverse pt-8 max-w-6xl mx-auto md:px-6 lg:px-0">
+        <div class="lg:w-2/3 px-4">
+            <slot/>
+        </div>
+        <div class="lg:w-1/3 px-4 my-8 lg:my-0">
+            <div class="space-y-8 sticky top-28">
+                <div class="grow relative rounded-lg border border-gray-200 p-6  text-center space-y-6">
+                    <div class="text-start">
+                        <Link :href="route('dashboard')"
+                              class="block transition ease-in-out duration-200 px-4 relative hover:text-red-500
+                                after:w-0 after:h-0.5 after:absolute after:bg-red-500
+                                after:-bottom-0 after:start-4 after:ease-in-out after:transition-width after:duration-200
+                                hover:after:w-6 py-4">العرائض الخاصة بي
+                        </Link>
+                        <a href="#"
+                           class="block transition ease-in-out duration-200 px-4 relative hover:text-red-500
+                                after:w-0 after:h-0.5 after:absolute after:bg-red-500
+                                after:-bottom-0 after:start-4 after:ease-in-out after:transition-width after:duration-200
+                                hover:after:w-6 py-4">توقيعاتي</a>
 
-                                                <svg class="ml-2 -mr-0.5 h-4 w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20" fill="currentColor">
-                                                    <path fill-rule="evenodd" d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z" clip-rule="evenodd" />
-                                                </svg>
-                                            </button>
-                                        </span>
-                                    </template>
+                        <a href="#"
+                           class="block transition ease-in-out duration-200 px-4 relative hover:text-red-500
+                                after:w-0 after:h-0.5 after:absolute after:bg-red-500
+                                after:-bottom-0 after:start-4 after:ease-in-out after:transition-width after:duration-200
+                                hover:after:w-6 py-4">حسابي</a>
 
-                                    <template #content>
-                                        <DropdownLink :href="route('logout')" method="post" as="button">
-                                            Log Out
-                                        </DropdownLink>
-                                    </template>
-                                </Dropdown>
-                            </div>
-                        </div>
-
-                        <!-- Hamburger -->
-                        <div class="-mr-2 flex items-center sm:hidden">
-                            <button @click="showingNavigationDropdown = ! showingNavigationDropdown" class="inline-flex items-center justify-center p-2 rounded-md text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:bg-gray-100 focus:text-gray-500 transition duration-150 ease-in-out">
-                                <svg class="h-6 w-6" stroke="currentColor" fill="none" viewBox="0 0 24 24">
-                                    <path :class="{'hidden': showingNavigationDropdown, 'inline-flex': ! showingNavigationDropdown }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
-                                    <path :class="{'hidden': ! showingNavigationDropdown, 'inline-flex': showingNavigationDropdown }" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
-                                </svg>
-                            </button>
-                        </div>
+                        <Link
+                            :href="route('logout')" method="post" as="button"
+                            class="block transition ease-in-out duration-200 px-4 relative hover:text-red-500
+                                after:w-0 after:h-0.5 after:absolute after:bg-red-500
+                                after:-bottom-0 after:start-4 after:ease-in-out after:transition-width after:duration-200
+                                hover:after:w-6 py-4">
+                            تسجيل الخوج
+                        </Link>
                     </div>
                 </div>
-
-                <!-- Responsive Navigation Menu -->
-                <div :class="{'block': showingNavigationDropdown, 'hidden': ! showingNavigationDropdown}" class="sm:hidden">
-                    <div class="pt-2 pb-3 space-y-1">
-                        <ResponsiveNavLink :href="route('dashboard')" :active="route().current('dashboard')">
-                            Dashboard
-                        </ResponsiveNavLink>
-                    </div>
-
-                    <!-- Responsive Settings Options -->
-                    <div class="pt-4 pb-1 border-t border-gray-200">
-                        <div class="px-4">
-                            <div class="font-medium text-base text-gray-800">{{ $page.props.auth.user.name }}</div>
-                            <div class="font-medium text-sm text-gray-500">{{ $page.props.auth.user.email }}</div>
-                        </div>
-
-                        <div class="mt-3 space-y-1">
-                            <ResponsiveNavLink :href="route('logout')" method="post" as="button">
-                                Log Out
-                            </ResponsiveNavLink>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-
-            <!-- Page Heading -->
-            <header class="bg-white shadow" v-if="$slots.header">
-                <div class="max-w-7xl mx-auto py-6 px-4 sm:px-6 lg:px-8">
-                    <slot name="header" />
-                </div>
-            </header>
-
-            <!-- Page Content -->
-            <main>
-                <slot />
-            </main>
+            </div>
         </div>
     </div>
+
+
 </template>
+
+
+<script>
+export default {
+    name: 'AuthenticatedLayout'
+}
+</script>
+
+<style scoped>
+
+</style>

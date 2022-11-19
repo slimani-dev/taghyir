@@ -193,40 +193,40 @@ onMounted(() => {
             </template>
 
             <template v-if="tabs.selected?.name === tabs.elements[1]?.name">
-                <div class="w-full overscroll-x-none flex">
-                    <table class="min-w-full table-auto">
+                <div class="w-full overflow-x-auto">
+                    <table class="w-full md:table-auto">
                         <tbody>
-                        <tr class="text-gray-500 bg-gray-100">
-                            <td class="border-b border-gray-200 font-medium p-4 ps-8 text-start">
+                        <tr class=" bg-gray-100">
+                            <td class="border-b border-gray-200  p-4 text-start">
                                 #
                             </td>
-                            <td class="border-b border-gray-200 font-medium p-4 ps-8 text-start">
+                            <td class="md:min-w-min min-w-[200px] border-b border-gray-200 p-4 text-start">
                                 الاسم
                             </td>
-                            <td class="border-b border-gray-200 font-medium p-4 ps-8 text-start">
+                            <td class="border-b border-gray-200 p-4 text-start">
                                 المدينة
                             </td>
-                            <td class="border-b border-gray-200 font-medium p-4 ps-8 text-start">
+                            <td class="min-w-[250px] md:min-w-min border-b border-gray-200 p-4 text-start">
                                 تعليق
                             </td>
-                            <td class="border-b border-gray-200 font-medium p-4 ps-8 text-start">
+                            <td class="border-b border-gray-200 p-4 text-start">
                                 التاريخ
                             </td>
                         </tr>
                         <tr v-for="i in 12" class="hover:bg-gray-100 text-gray-500">
-                            <td class="border-b border-gray-200 p-4 ps-8">
+                            <td class="border-b border-gray-200 p-4 ">
                                 {{ i }}
                             </td>
-                            <td class="border-b border-gray-200 p-4 ps-8">
+                            <td class="border-b border-gray-200 p-4 ">
                                 هادي الحمدوني
                             </td>
-                            <td class="border-b border-gray-200 p-4 ps-8">
+                            <td class="border-b border-gray-200 p-4 ">
                                 تونس المدينة
                             </td>
-                            <td class="border-b border-gray-200 p-4 ps-8">
+                            <td class="border-b border-gray-200 p-4 ">
                                 انا اوقع و اساند
                             </td>
-                            <td class="border-b border-gray-200 p-4 ps-8">
+                            <td class="border-b whitespace-nowrap border-gray-200 p-4 ">
                                 2022-10-16
                             </td>
                         </tr>
@@ -240,7 +240,7 @@ onMounted(() => {
                         <table class="w-full table-auto">
                             <tbody>
                             <tr class="text-gray-500 bg-gray-100">
-                                <td class="border-b border-gray-200 font-medium p-4 ps-8 text-start">
+                                <td class="border-b border-gray-200 font-medium p-4 text-start">
                                     المدينة
                                 </td>
                                 <td class="border-b border-gray-200 font-medium p-4 text-start">
@@ -248,10 +248,10 @@ onMounted(() => {
                                 </td>
                             </tr>
                             <tr v-for="i in 12" class="hover:bg-gray-100 text-gray-500">
-                                <td class="border-b border-gray-200 p-4 ps-8">
+                                <td class="border-b border-gray-200 p-4 ">
                                     Sfax (تونس)
                                 </td>
-                                <td class="border-b border-gray-200 p-4 ps-8">
+                                <td class="border-b border-gray-200 p-4 ">
                                     583
                                 </td>
                             </tr>
@@ -262,7 +262,7 @@ onMounted(() => {
                         <table class="w-full table-auto">
                             <tbody>
                             <tr class="text-gray-500 bg-gray-100">
-                                <td class="border-b border-gray-200 font-medium p-4 ps-8 text-start">
+                                <td class="border-b border-gray-200 font-medium p-4 text-start">
                                     التاريخ
                                 </td>
                                 <td class="border-b border-gray-200 font-medium p-4 text-start">
@@ -270,10 +270,10 @@ onMounted(() => {
                                 </td>
                             </tr>
                             <tr v-for="i in 12" class="hover:bg-gray-100 text-gray-500">
-                                <td class="border-b border-gray-200 p-4 ps-8">
+                                <td class="border-b border-gray-200 p-4 ">
                                     2022-11-14
                                 </td>
-                                <td class="border-b border-gray-200 p-4 ps-8">
+                                <td class="border-b border-gray-200 p-4 ">
                                     583
                                 </td>
                             </tr>

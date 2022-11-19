@@ -19,8 +19,8 @@ return new class extends Migration {
         });
 
         Schema::table('users', function (Blueprint $table) {
-            $table->foreignId('state_id')->references('id')->on('states');
-            $table->string('city');
+            $table->foreignId('state_id')->nullable()->references('id')->on('states');
+            $table->string('city')->nullable();
         });
     }
 
