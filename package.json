@@ -2,7 +2,11 @@
     "private": true,
     "scripts": {
         "dev": "vite",
-        "build": "vue-tsc && vite build && vite build --ssr"
+        "build": "vue-tsc && vite build && vite build --ssr",
+        "build-nova-taniy-m-c-e": "cd nova-components/NovaTaniyMCE && npm run dev",
+        "build-nova-taniy-m-c-e-prod": "cd nova-components/NovaTaniyMCE && npm run prod",
+        "build-nova-tiny-m-c-e": "cd nova-components/NovaTinyMCE && npm run dev",
+        "build-nova-tiny-m-c-e-prod": "cd nova-components/NovaTinyMCE && npm run prod"
     },
     "devDependencies": {
         "@inertiajs/inertia": "^0.11.0",

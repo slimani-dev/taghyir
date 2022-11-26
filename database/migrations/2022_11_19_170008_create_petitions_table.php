@@ -25,11 +25,6 @@ return new class extends Migration {
             $table->foreignId('category_id')->references('id')->on('categories')->cascadeOnDelete();
             $table->foreignId('petition_id')->references('id')->on('petitions')->cascadeOnDelete();
         });
-
-        Schema::create('petition_tag', function (Blueprint $table) {
-            $table->foreignId('petition_id')->references('id')->on('petitions')->cascadeOnDelete();
-            $table->foreignId('tag_id')->references('id')->on('tags')->cascadeOnDelete();
-        });
     }
 
     /**

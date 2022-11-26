@@ -4,10 +4,14 @@ namespace App\Nova;
 
 
 use Illuminate\Http\Request;
+use Laravel\Nova\Fields\Hidden;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Text;
 use Laravel\Nova\Fields\Textarea;
 use Laravel\Nova\Http\Requests\NovaRequest;
+use MohSlimani\NovaTaniyMCE\NovaTaniyMCE;
+use MohSlimani\NovaTinyMCE\NovaTinyMCE;
+use Spatie\TagsField\Tags;
 
 class Petition extends Resource
 {
@@ -40,13 +44,17 @@ class Petition extends Resource
      * @param \Laravel\Nova\Http\Requests\NovaRequest $request
      * @return array
      */
-    public function fields(NovaRequest $request)
+    public function fields(NovaRequest $request): array
     {
         return [
             ID::make()->sortable(),
-            Text::make('title')->sortable(),
-            Textarea::make('excerpt')->sortable(),
-            Text::make('text')->sortable(),
+            Text::make('title')->sortable()->fullWidth(),
+            Textarea::make('excerpt')->sortable()->fullWidth(),
+            Tags::make('Tags')->fullWidth(),
+            NovaTinyMCE::make('text')->hideFromIndex()->fullWidth(),
+            Hidden::make('User', 'user_id')->default(function ($request) {
+                return $request->user()->id;
+            }),
         ];
     }
 
