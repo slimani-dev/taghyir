@@ -3,7 +3,6 @@ import {Link} from '@inertiajs/inertia-vue3'
 import {onMounted, onUnmounted, ref} from 'vue'
 import _ from 'lodash'
 import {Menu, MenuButton, MenuItem, MenuItems} from '@headlessui/vue'
-import route from "ziggy-js"
 
 const showSideMenu = ref(false)
 
@@ -41,7 +40,7 @@ onUnmounted(() => {
         <div class="flex flex-row border-b border-b-gray-200 px-4 h-24 items-center justify-between max-w-6xl mx-auto">
             <div class="py-8 me-8">
                 <Link class="font-black text-3xl"
-                      :href="route('home')">
+                      :href="$route('home')">
                     التغيير
                     <span class="text-red-500">.</span>
                 </Link>

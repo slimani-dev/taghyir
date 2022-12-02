@@ -4,7 +4,7 @@ import {createInertiaApp} from '@inertiajs/inertia-vue3'
 import createServer from '@inertiajs/server'
 import {resolvePageComponent} from 'laravel-vite-plugin/inertia-helpers'
 import {ZiggyVue} from '../../vendor/tightenco/ziggy/dist/vue.m'
-import route from '../../vendor/tightenco/ziggy/src/js'
+import route, {RouteParam, RouteParamsWithQueryOverload} from 'ziggy-js'
 
 const appName = 'Laravel'
 
@@ -25,10 +25,15 @@ createServer((page) =>
 
             const VueApp = createSSRApp({render: () => h(app, props)})
 
-            VueApp.config.globalProperties.$route = route
             VueApp.use(ZiggyVue, Ziggy).use(plugin);
 
-            console.log('route(\'home\')', route('home').toString())
+            VueApp.config.globalProperties.$route = (
+                name?: undefined,
+                params?: RouteParamsWithQueryOverload | RouteParam,
+                absolute?: boolean
+            ) => {
+                route(name, params, absolute, Ziggy)
+            }
 
             return VueApp
         }
