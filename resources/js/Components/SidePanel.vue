@@ -2,7 +2,6 @@
 import {Link} from '@inertiajs/inertia-vue3'
 import worldMap from '@/../assets/img/world-bg.png'
 import {reactive} from "vue";
-import route from 'ziggy-js'
 
 const categories = reactive({
     data: [
@@ -52,11 +51,11 @@ const categories = reactive({
         <slot name="petition-details"></slot>
 
         <div class="grow relative rounded-lg border border-gray-200 px-6 py-12  text-center space-y-6">
-            <div class="absolute inset-0">
+            <div class="absolute inset-0 -z-10">
                 <img :src="worldMap" class="h-full w-full object-cover" alt="">
             </div>
             <Link class="font-black text-3xl"
-                  :href="route('home')">
+                  :href="$route('home')">
                 التغيير
                 <span class="text-red-500">.</span>
             </Link>

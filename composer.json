@@ -18,7 +18,7 @@
         "moh-slimani/nova-tiny-m-c-e": "*",
         "spatie/laravel-tags": "^4.3",
         "spatie/nova-tags-field": "^4.0",
-        "tightenco/ziggy": "^1.0"
+        "tightenco/ziggy": "^1.5"
     },
     "require-dev": {
         "barryvdh/laravel-ide-helper": "^2.12",

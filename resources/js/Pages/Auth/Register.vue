@@ -115,7 +115,7 @@ const submit = () => {
 
             <p class="text-sm text-gray-600 ">
                 هل لديك حساب؟
-                <Link :href="route('login')" class="font-bold text-red-500 hover:underline ms-2">
+                <Link :href="$route('login')" class="font-bold text-red-500 hover:underline ms-2">
                     تسجيل الدخول
                 </Link>
             </p>

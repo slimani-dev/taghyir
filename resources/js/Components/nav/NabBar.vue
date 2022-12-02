@@ -1,18 +1,19 @@
-<script setup>
-import { Link } from '@inertiajs/inertia-vue3'
-import { onMounted, onUnmounted, ref } from 'vue'
-import { debounce } from 'lodash'
-import { Menu, MenuButton, MenuItem, MenuItems } from '@headlessui/vue'
+<script setup lang="ts">
+import {Link} from '@inertiajs/inertia-vue3'
+import {onMounted, onUnmounted, ref} from 'vue'
+import _ from 'lodash'
+import {Menu, MenuButton, MenuItem, MenuItems} from '@headlessui/vue'
+import route from "ziggy-js"
 
 const showSideMenu = ref(false)
 
 const fixedMenu = ref(false)
 
-const handleScroll = (event) => {
+const handleScroll = () => {
     fixedMenu.value = window.scrollY > 500
 }
 
-const handleDebouncedScroll = debounce(handleScroll, 10)
+const handleDebouncedScroll = _.debounce(handleScroll, 10)
 
 onMounted(() => {
     window.addEventListener('scroll', handleDebouncedScroll)
@@ -24,6 +25,7 @@ onUnmounted(() => {
 </script>
 
 <template>
+
     <div
         class="hidden sm:flex sm:flex-row border-b border-b-gray-200 px-4 py-1 max-w-6xl mx-auto justify-between">
         <div></div>
@@ -67,14 +69,14 @@ onUnmounted(() => {
             </ul>
 
             <ul class="font-semibold list-none hidden sm:block">
-                <Menu v-if="$page.props.auth.user"
+                <Menu v-if="$page.props.auth?.user"
                       as="li" class="float-start relative">
                     <MenuButton
                         class="block transition ease-in-out duration-200 px-4 relative hover:text-red-500
                           after:w-0 after:h-0.5 after:absolute after:bg-red-500
                           after:-bottom-2.5 after:start-4 after:ease-in-out after:transition-width after:duration-200
                           hover:after:w-6">
-                        {{ $page.props.auth.user.name }}
+                        {{ $page.props.auth?.user?.name }}
                         <i class="ri-arrow-down-s-line align-middle -mr-1 ml-2 h-5 w-5" aria-hidden="true"/>
                     </MenuButton>
 
@@ -89,7 +91,7 @@ onUnmounted(() => {
                             class="z-10 origin-top-end end-0 absolute mt-10 w-48 shadow-lg bg-white ring-1 ring-black ring-opacity-5 focus:outline-none">
                             <div class="py-1">
                                 <MenuItem>
-                                    <Link :href="route('dashboard')"
+                                    <Link :href="$route('dashboard')"
                                           class="block transition ease-in-out duration-200 px-4 relative hover:text-red-500
                                       after:w-0 after:h-0.5 after:absolute after:bg-red-500
                                       after:-bottom-0 after:start-4 after:ease-in-out after:transition-width after:duration-200
@@ -111,7 +113,7 @@ onUnmounted(() => {
                                       hover:after:w-6 py-4">حسابي</a>
                                 </MenuItem>
                                 <Link
-                                    :href="route('logout')" method="post" as="button"
+                                    :href="$route('logout')" method="post" as="button"
                                     class="block transition ease-in-out duration-200 px-4 relative hover:text-red-500
                                 after:w-0 after:h-0.5 after:absolute after:bg-red-500
                                 after:-bottom-0 after:start-4 after:ease-in-out after:transition-width after:duration-200
@@ -125,7 +127,7 @@ onUnmounted(() => {
 
                 <template v-else>
                     <li class="float-start py-8">
-                        <Link :href="route('login')"
+                        <Link :href="$route('login')"
                               class="block transition ease-in-out duration-200 px-4 relative hover:text-red-500
                           after:w-0 after:h-0.5 after:absolute after:bg-red-500
                           after:-bottom-2.5 after:start-4 after:ease-in-out after:transition-width after:duration-200
@@ -134,7 +136,7 @@ onUnmounted(() => {
                         </Link>
                     </li>
                     <li class="float-start py-8">
-                        <Link :href="route('register')"
+                        <Link :href="$route('register')"
                               class="block transition ease-in-out duration-200 px-4 relative hover:text-red-500
                           after:w-0 after:h-0.5 after:absolute after:bg-red-500
                           after:-bottom-2.5 after:start-4 after:ease-in-out after:transition-width after:duration-200
@@ -187,7 +189,7 @@ onUnmounted(() => {
 
 </template>
 
-<script>
+<script lang="ts">
 export default {
     name: 'NabBar'
 }

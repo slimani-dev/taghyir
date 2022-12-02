@@ -20,7 +20,7 @@ import { Link } from '@inertiajs/inertia-vue3'
             <div class="space-y-8 sticky top-28">
                 <div class="grow relative rounded-lg border border-gray-200 p-6  text-center space-y-6">
                     <div class="text-start">
-                        <Link :href="route('dashboard')"
+                        <Link :href="$route('dashboard')"
                               class="block transition ease-in-out duration-200 px-4 relative hover:text-red-500
                                 after:w-0 after:h-0.5 after:absolute after:bg-red-500
                                 after:-bottom-0 after:start-4 after:ease-in-out after:transition-width after:duration-200
@@ -39,7 +39,7 @@ import { Link } from '@inertiajs/inertia-vue3'
                                 hover:after:w-6 py-4">حسابي</a>
 
                         <Link
-                            :href="route('logout')" method="post" as="button"
+                            :href="$route('logout')" method="post" as="button"
                             class="block transition ease-in-out duration-200 px-4 relative hover:text-red-500
                                 after:w-0 after:h-0.5 after:absolute after:bg-red-500
                                 after:-bottom-0 after:start-4 after:ease-in-out after:transition-width after:duration-200
